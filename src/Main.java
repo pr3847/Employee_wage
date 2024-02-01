@@ -1,9 +1,10 @@
 public class Main {
     public static void main(String[] args) {
         System.out.println("Welcome to the employee wage");
-        int empHrW=20,empHr=0,total=0,perday=0;
+        int empHrW=20,empHr=0,total=0,perday=0,totaldays=0,totalempHr=0;
         int no_of_days=20;
-        for(int i=1;i<=no_of_days;i++) {
+        while(totalempHr<=100 && totaldays<no_of_days) {
+            totaldays++;
             int emp = (int) Math.floor(Math.random() * 10) % 3;
             switch (emp) {
                 case 1:
@@ -16,10 +17,10 @@ public class Main {
                     empHr = 0;
 
             }
-            perday = empHrW * empHr;
-            total+=perday;
-            System.out.println("Employee today wage per day is: " + perday);
+            totalempHr+=empHr;
+            System.out.println("Day:"+totaldays+" hours:"+empHr);
         }
-        System.out.println("Total wage of the month: "+total);
+        total=totalempHr*empHrW;
+        System.out.println("Total wage for working "+totalempHr+"hrs in a month "+total);
     }
 }
